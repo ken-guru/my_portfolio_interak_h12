@@ -1,5 +1,8 @@
 MyPortfolio::Application.routes.draw do
+  
   resources :clients
+
+  resources :projects
 
   root 'clients#index'
 
