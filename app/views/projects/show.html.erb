@@ -1,2 +1,35 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1>
+	<%= @project.name %>
+</h1>
+
+<p>
+	Delivered
+	<time datetime="<%= @project.delivered_at %>">
+		<%= distance_of_time_in_words_to_now @project.delivered_at %>
+	</time>
+	ago
+</p>
+
+<p>
+	<%= link_to @project.url, @project.url %>
+</p>
+
+<p>
+	<%= @project.description %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', projects_path %>
+
+
+
+
+
+
+
+
+
+
+
+
