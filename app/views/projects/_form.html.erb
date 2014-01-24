@@ -43,6 +43,11 @@
     <%= f.text_field :url, type: :url %>
   </div>
 
+  <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.collection_select :client_id, @clients, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

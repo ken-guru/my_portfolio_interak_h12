@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_clients, only: [:new, :create, :edit, :update]
+
   def index
     @projects = Project.all
   end
@@ -41,10 +43,14 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:name, :description, :delivered_at, :url)
+      params.require(:project).permit(:name, :description, :delivered_at, :url, :client_id)
     end
 
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_clients
+      @clients = Client.all
     end
 end

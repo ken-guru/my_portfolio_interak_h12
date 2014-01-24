@@ -2,6 +2,12 @@
 	<%= @project.name %>
 </h1>
 
+<% unless @project.client.nil? %>
+	<p>
+		Client: <%= link_to @project.client.name, @project.client.website, target: :_blank %>
+	</p>
+<% end %>
+
 <% unless @project.delivered_at.blank? %>
 	<p>
 		Delivered
@@ -14,7 +20,7 @@
 
 <% unless @project.url.blank? %>
 	<p>
-		<%= link_to @project.url, @project.url %>
+		<%= link_to @project.url, @project.url, target: :_blank %>
 	</p>
 <% end %>
 
