@@ -2,21 +2,27 @@
 	<%= @project.name %>
 </h1>
 
-<p>
-	Delivered
-	<time datetime="<%= @project.delivered_at %>">
-		<%= distance_of_time_in_words_to_now @project.delivered_at %>
-	</time>
-	ago
-</p>
+<% unless @project.delivered_at.blank? %>
+	<p>
+		Delivered
+		<time datetime="<%= @project.delivered_at %>">
+			<%= distance_of_time_in_words_to_now @project.delivered_at %>
+		</time>
+		ago
+	</p>
+<% end %>
 
-<p>
-	<%= link_to @project.url, @project.url %>
-</p>
+<% unless @project.url.blank? %>
+	<p>
+		<%= link_to @project.url, @project.url %>
+	</p>
+<% end %>
 
-<p>
-	<%= @project.description %>
-</p>
+<% unless @project.description.blank? %>
+	<p>
+		<%= @project.description %>
+	</p>
+<% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
