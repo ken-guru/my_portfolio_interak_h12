@@ -32,22 +32,7 @@
 
 <h2>Project Images</h2>
 
-<section class="new_image">
-	<h3>Upload new image</h3>
 
-	<%= form_for [@project, @project.images.new] do |f| %>
-
-		<div class="field">
-			<%= f.label :caption %><br>
-			<%= f.text_field :caption %>
-		</div>
-
-		<div class="actions">
-			<%= f.submit %>
-		</div>
-
-	<% end %>
-</section>
 
 <section class="show_images">
 	<ul class="images">
@@ -55,14 +40,46 @@
 
 			<li class="image">
 				<figure>
+					<%= image_tag image.file.url %>
 					<figcaption>
 						<%= image.caption %>
 					</figcaption>
 				</figure>
+
+				<ul class="manage">
+					<li class="edit">
+						<%= link_to 'Edit image', edit_project_image_path(@project, image) %>
+					</li>
+					<li class="destroy">
+						<%= link_to 'Destroy image', project_image_path(@project, image), method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' } %>
+					</li>
+				</ul>
 			</li>
 
 		<% end %>
 	</ul>
+</section>
+
+<section class="new_image">
+	<h3>Upload new image</h3>
+
+	<%= form_for [@project, @project.images.new], html: { multipart: true } do |f| %>
+
+		<div class="field">
+			<%= f.label :caption %><br>
+			<%= f.text_field :caption %>
+		</div>
+
+		<div class="field">
+			<%= f.label :file %><br>
+			<%= f.file_field :file %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+	<% end %>
 </section>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

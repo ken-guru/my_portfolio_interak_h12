@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'paranoia', '~> 2.0'
+
+gem 'carrierwave'
