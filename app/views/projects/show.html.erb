@@ -30,6 +30,41 @@
 	</p>
 <% end %>
 
+<h2>Project Images</h2>
+
+<section class="new_image">
+	<h3>Upload new image</h3>
+
+	<%= form_for [@project, @project.images.new] do |f| %>
+
+		<div class="field">
+			<%= f.label :caption %><br>
+			<%= f.text_field :caption %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+	<% end %>
+</section>
+
+<section class="show_images">
+	<ul class="images">
+		<% for image in @project.images %>
+
+			<li class="image">
+				<figure>
+					<figcaption>
+						<%= image.caption %>
+					</figcaption>
+				</figure>
+			</li>
+
+		<% end %>
+	</ul>
+</section>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', projects_path %>

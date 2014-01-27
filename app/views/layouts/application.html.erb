@@ -16,6 +16,14 @@
 
 	<div id="content_wrapper">
 
+		<% if notice %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+
+		<% if alert %>
+			<p class="alert"><%= alert %></p>
+		<% end %>
+
 		<%= yield %>
 
 	</div>
