@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+	acts_as_paranoid
+
 	belongs_to :client
 
 	validates :name, presence: true
