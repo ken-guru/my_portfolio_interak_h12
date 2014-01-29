@@ -49,3 +49,5 @@ gem 'paranoia', '~> 2.0'
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all' # both FTP/SFTP
