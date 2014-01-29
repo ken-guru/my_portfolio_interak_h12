@@ -47,3 +47,5 @@ end
 gem 'paranoia', '~> 2.0'
 
 gem 'carrierwave'
+
+gem 'mini_magick'
